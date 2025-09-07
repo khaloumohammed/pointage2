@@ -1,0 +1,68 @@
+ft.Column(
+            controls=[ft.Container(
+                content= ft.ListTile(
+                title=ft.Text(f"{student['id'].split("_")[-1]} : {student['nom']}", color="white"),
+                subtitle=ft.Text(f"Genre: {student['genre']} ", color="white"),
+                leading=ft.CircleAvatar(
+                            # Logique de condition pour l'avatar
+                            #foreground_image_src="assets/avatar_G.png" if student['genre'] == "G" else "assets/avatar_F.png",
+                            content=ft.Image(
+                                src="assets/avatar_G.png" if student['genre'] == "G" else "assets/avatar_F.png",
+                                  fit=ft.ImageFit.COVER),
+                            radius=25
+                        ),
+                trailing=ft.Icon(ft.Icons.ARROW_FORWARD_IOS, color="white"),
+                on_click=lambda _,student_id=student['id']: page.go(f"/student/{student_id}")
+                ),
+                bgcolor="#002e63",
+                border_radius=12,
+                ),
+                
+            ],
+                  
+        )for student in page.students_data if student['classe']==classe
+
+
+
+
+
+
+        ft.Container(
+                        ft.Row(
+                            controls=[
+                                ft.IconButton(ft.Icons.EDIT, icon_color="white"),
+                                ft.IconButton(ft.Icons.DELETE, icon_color="red"),
+                            ]
+                        ),
+                    ),
+
+
+
+
+    ft.ListTile(
+                    title=ft.Text(f"{student['id'].split('_')[-1]} : {student['nom']}", color="white"),
+                    subtitle=ft.Text(f"Genre: {student['genre']} ", color="white"),
+                    leading=ft.CircleAvatar(
+                        content=ft.Image(
+                            src=avatar_url,
+                            fit=ft.ImageFit.COVER
+                        ),
+                        radius=25
+                    ),
+        
+                ),
+
+ft.Column(
+                        controls=[
+                            ft.IconButton(
+                                icon=ft.Icons.EDIT,
+                                on_click=lambda _: page.go("/"),
+                                icon_color="white"
+                            ),
+                            ft.IconButton(
+                                icon=ft.Icons.DELETE,
+                                on_click=lambda _: page.go("/"),
+                                icon_color="#a52a2ad"
+                            ),
+                        ],
+                    ),

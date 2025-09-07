@@ -234,3 +234,4 @@ def check_student_number_in_class(classe, student_number):
                 return True # Un élève avec le même numéro dans cette classe a été trouvé
                 
     return False # Aucun doublon trouvé
+    return False # Aucun doublon trouvé
