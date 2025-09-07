@@ -13,10 +13,7 @@ def afficher_snack_bar(page, classe):
     page.snack_bar = snack_bar
     
     # Affiche le SnackBar
-    #page.open(snack_bar)
-    page.snack_bar.open=True
-<<<<<<< HEAD
+    page.open(snack_bar)
+    
     page.update()
-=======
-    page.update()
->>>>>>> 105fb96 (Ajout des fichiers de base du projet pour la fusion)
+
