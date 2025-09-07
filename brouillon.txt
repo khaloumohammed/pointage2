@@ -1,0 +1,41 @@
+if e.route=="/":
+    students_rows = [
+        ft.ListTile(
+            title = ft.Text(student['nom']),
+            subtitle = ft.Text(f"Note: {student['note]}),
+            trailing = ft.Icon(ft.Icons.ARROWBACK)
+        )for student in students_data
+    ]
+
+#fonction qui retourne les données de l'élève par son id
+def get_student_data_by_id(student_id):
+    for student in students_data:
+        if student['id']==student_id:
+            return student
+    return none
+
+#fonction qui gére les routes
+def change_route(e):
+    #commencer par nettoyer la page
+    page.clear()
+    #instaurer le test pour chaque page
+    if e.route=="/" #si le chemin de la page pointe sur la page principale
+        """créer une variable pour le contenu da la page, dans notre cas
+            la page principale est composé par des listtiles avec les données des élèves
+        """
+        studentstiles = ft.ListTile(
+            title=ft.Text(f"Nom: {student['nom']}),
+            subtitle=ft.Text(f"Clesse: {studen['classe']}),
+            trailing=ft.Icon(ft.Icons.ARROW_FORWARD_IOS),
+            on_click=lambda _,student_id=student['id']:page.go(f"/student/{stendent_id}")
+        )for student in students_data
+        #ajouter un ft.View à la page
+            "/", #chemin de la page
+            [
+                ft.AppBar(ft.Text("------")),
+                ft.Text("Liste des élèves"),
+                ft.ListView(
+                    controls=students_tiles,
+                    expand=True
+                )
+            ]
